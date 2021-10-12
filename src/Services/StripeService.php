@@ -22,7 +22,7 @@ class StripeService
     {
         \Stripe\Stripe::setApiKey($this->privateKey);
         return \Stripe\PaymentIntent::create([
-            'amount' => $cart->getTotal(),
+            'amount' => $cart->getTotal()*100,
             'currency'=>'eur',
             'payment_method_types'=>['card']
         ]);
@@ -42,7 +42,7 @@ class StripeService
             $payment_intent = \Stripe\PaymentIntent::retrieve($stripeParameter['stripeIntentId']);
         }
         
-        if($stripeParameter['stripeIntentId'] === 'succeeded'){
+        if($stripeParameter['stripeIntentStatus'] === 'succeeded'){
             //TODO
         } else {
             $payment_intent->cancel();

@@ -28,6 +28,7 @@ class Cart
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+    #[Groups('read:cart')]
     private $id;
 
     /**
@@ -38,7 +39,7 @@ class Cart
     /**
      * @ORM\Column(type="string", length=255)
      */
-    #[Groups('write:User','read:cart','read:User')]
+    #[Groups(['write:User','read:cart','read:User'])]
     private $owner;
 
     /**
@@ -50,6 +51,7 @@ class Cart
     /**
      * @ORM\Column(type="float", nullable=true)
      */
+    #[Groups('read:cart')]
     private $total;
 
     public function __construct()
