@@ -60,7 +60,7 @@ class CartManager
         $order = new Order();
         $prodArray=[];
         foreach($products as $product){
-            $ref = ['title'=>$product->getBook()->getTitle(),'price'=>$product->getBook()->getPrice()];
+            $ref = ['title'=>$product->getBook()->getTitle(),'price'=>$product->getBook()->getPrice(),'quantity'=>$product->getQuantity()];
             array_push($prodArray,$ref);
         }
         

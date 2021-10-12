@@ -38,7 +38,7 @@ class PaymentController extends AbstractController
             if($resource !== null){
                 // $cartManager->create_subscription($cart,$user);
                 $cartManager->create_subscription($cart,$user,$products);
-                return $this->json($data,200);
+                return $this->json($data,201);
             }
         }
     }
